@@ -7,8 +7,32 @@
 </head>
 <body <?php body_class(); ?>>
 <header>
+    <nav class="menu-left">
+        <?php
+        wp_nav_menu(array(
+            'theme_location'  => 'menu-header-left',
+            'container'       => 'div',
+            'container_class' => 'menu-container-left',
+            'menu_class'      => 'menu-ul-left',
+            'fallback_cb'     => false
+        ));
+        ?>
+    </nav>
+    <nav></nav>
+
+    <!-- Menú Derecho -->
+    <nav class="menu-right">
+        <?php
+        wp_nav_menu(array(
+            'theme_location'  => 'menu-header-right',
+            'container'       => 'div',
+            'container_class' => 'menu-container-right',
+            'menu_class'      => 'menu-ul-right',
+            'fallback_cb'     => false
+        ));
+        ?>
+    </nav>
     <nav>
     <?php dynamic_sidebar('sidebar-1'); ?>
     </nav>
-    <nav><?php wp_nav_menu(['theme_location' => 'main-menu']); ?></nav>
 </header>
