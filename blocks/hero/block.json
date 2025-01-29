@@ -1,0 +1,14 @@
+{
+    "apiVersion": 2,
+    "name": "my-custom-theme/hero",
+    "title": "Hero Block",
+    "category": "layout",
+    "icon": "cover-image",
+    "description": "A hero section with a background image.",
+    "supports": {
+        "align": ["wide", "full"]
+    },
+    "enqueueStyle": "file:./hero.css",
+    "enqueueScript": "file:./hero.js",
+    "renderTemplate": "hero.php"
+}

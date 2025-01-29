@@ -1,0 +1,129 @@
+/*
+Theme Name: Elafrios Tachy
+Theme URI: https://example.com/
+Author: Your Name
+Author URI: https://yourwebsite.com/
+Description: A lightweight and fast WordPress theme designed for simplicity and speed.
+Version: 1.0
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: elafrios-tachy
+*/
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.5rem 0;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Párrafos */
+p {
+  margin: 0.5rem 0;
+}
+
+/* Enlaces */
+a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Listas */
+ul, ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin: 0.25rem 0;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+th, td {
+  padding: 0.5rem;
+  border: 1px solid #eaeaea;
+}
+
+th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+/* Imágenes */
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* Botones */
+button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border: 1px solid #007acc;
+  background-color: #ffffff;
+  color: #007acc;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #007acc;
+  color: white;
+}
+
+/* Header y Footer */
+header, footer {
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #333333;
+  text-align: center;
+  border-bottom: 1px solid #eaeaea;
+}
+
+header nav a {
+  color: #007acc;
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+main {
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 800px;
+}
