@@ -1,0 +1,20 @@
+{
+    "name": "acf/titletext",
+    "title": "M01_TitleText",
+    "description": "Title text block",
+    "category": "content-blocks",
+    "icon": "menu",
+    "keywords": ["Title Text","M01"],
+    "textdomain": "ostotart",
+    "acf": {
+      "mode": "edit",
+      "renderTemplate": "index.php"
+    },
+    "supports": {
+      "anchor": true,
+      "mode": true
+    },
+    "viewStyle": ["file:./style.css"],
+    "editorStyle": ["file:./style.css"],
+    "viewScript": ["file:./main.js"]
+  }

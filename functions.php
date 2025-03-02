@@ -19,6 +19,12 @@ function my_theme_widgets_init() {
 }
 add_action('widgets_init', 'my_theme_widgets_init');
 
+add_action('wp_head', function() {
+    global $template;
+    echo '<!-- Archivo de plantilla en uso: ' . basename($template) . ' -->';
+});
+
+
 
 function my_custom_theme_assets() {
     wp_enqueue_style('my-theme-root-style', get_stylesheet_uri(), [], '1.0');
@@ -34,16 +40,18 @@ function mi_tema_soporte_basico() {
 add_action('after_setup_theme', 'mi_tema_soporte_basico');
 
 
-function my_custom_blocks() {
-    $blocks_dir = get_template_directory() . '/blocks/';
-    $blocks = glob($blocks_dir . '*', GLOB_ONLYDIR);
+function registrar_bloques_acf() {
+    $ruta_bloques = get_template_directory() . '/blocks/';
 
-    foreach ($blocks as $block) {
-        $block_name = basename($block);
-        register_block_type("$blocks_dir/$block_name");
+    foreach (glob($ruta_bloques . '*', GLOB_ONLYDIR) as $bloque_dir) {
+        $block_json = $bloque_dir . '/block.json';
+
+        if (file_exists($block_json)) {
+            register_block_type($bloque_dir);
+        }
     }
 }
-add_action('init', 'my_custom_blocks');
+add_action('init', 'registrar_bloques_acf');
 
 require get_stylesheet_directory() . '/inc/functions-theme.php';
 ?>
