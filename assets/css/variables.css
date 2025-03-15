@@ -1,0 +1,19 @@
+@import "fonts.css";
+
+:root {
+
+    /*Font families variables*/
+    --SatoshiRegular: "Satoshi-Regular", sans-serif;
+    --SatoshiMedium: "Satoshi-Medium", sans-serif;
+    --SatoshiLight: "Satoshi-Light", sans-serif;
+    --SatoshiVariable: "Satoshi-Variable", sans-serif;
+
+    /*Color Variables*/
+    --Blanco: #FFFFFF;
+    --Dorado: #E9D9B8;
+    --Negro: #00000D; /* Negro Profundo */
+    --AzulOscuro: #1C1B38;
+    --BlancoHueso: #F5F5F5; /* Blanco Suave */
+    --accentColor: #C5A880; /* Dorado Suave */
+    --darkGrayColor: #2E2E2E; /* Gris Oscuro */
+}

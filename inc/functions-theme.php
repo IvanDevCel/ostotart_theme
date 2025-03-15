@@ -7,7 +7,6 @@ function menus_header() {
     ));
 }
 add_action('after_setup_theme', 'menus_header');
-
 function cargar_bootstrap() {
     $bootstrap_css = get_template_directory_uri() . '/lib/bootstrap-5.3.3/css/bootstrap.min.css';
     $bootstrap_js = get_template_directory_uri() . '/lib/bootstrap-5.3.3/js/bootstrap.bundle.min.js';

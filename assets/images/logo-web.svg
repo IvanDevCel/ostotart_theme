@@ -1,0 +1,25 @@
+<svg width="400" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>
+            @font-face {
+                font-family: 'Boska';
+                src: url('../assets/fonts/Boska/Boska-Medium.woff2') format('woff2');
+                font-weight: 500;
+                font-style: normal;
+            }
+            .text {
+                font-family: 'Boska', sans-serif;
+                font-size: 50px;
+                font-weight: 500;
+                text-anchor: middle;
+                dominant-baseline: middle;
+            }
+        </style>
+    </defs>
+    
+    <!-- Texto principal en dorado -->
+    <text x="50%" y="50%" fill="#E9D9B8" class="text">OstotArt</text>
+    
+    <!-- Contorno azul oscuro para darle profundidad -->
+    <text x="50%" y="50%" fill="none" stroke="#0D0D0D" stroke-width="2" class="text">OstotArt</text>
+</svg>

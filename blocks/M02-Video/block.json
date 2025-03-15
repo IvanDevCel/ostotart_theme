@@ -1,0 +1,20 @@
+{
+    "name": "acf/video",
+    "title": "M02 Video/Url",
+    "description": "Video / Url block",
+    "category": "content-blocks",
+    "icon": "menu",
+    "keywords": ["Video / Url","M02"],
+    "textdomain": "ostotart",
+    "acf": {
+      "mode": "edit",
+      "renderTemplate": "index.php"
+    },
+    "supports": {
+      "anchor": true,
+      "mode": true
+    },
+    "viewStyle": ["file:./style.css"],
+    "editorStyle": ["file:./style.css"],
+    "viewScript": ["file:./main.js"]
+  }
