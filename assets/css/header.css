@@ -146,6 +146,15 @@ header {
 }
 
 /*Search Section*/
+.searchSection{
+    height: 60vh;
+    width: 100%;
+    background-color: var(--AzulOscuro);
+    position: fixed;
+    top: -100%;
+    transition: top .5s ease-in-out;
+    left: 0;
+}
 .searchSection.isActive{
-
+    top: 0;
 }

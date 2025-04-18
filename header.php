@@ -23,9 +23,11 @@
                                 ));
                                 ?>
                             </nav>
+
                             <div class="logoHeader">
                                 <?php dynamic_sidebar('sidebar-1'); ?>
                             </div>
+
                             <!-- Menú Derecho -->
                             <nav class="menu-right">
                                 <?php
@@ -37,6 +39,7 @@
                                     'fallback_cb'     => false
                                 ));
                                 ?>
+
                                 <div class="searchLanguage">
                                     <div class="language-selector" data-no-translation>
                                         <?php
@@ -59,7 +62,8 @@
                                                 <div class="lang-select">
                                                     <div class="lang-toggle current" aria-expanded="false" aria-controls="lang-dropdown">
                                                         <?= esc_html($current_lang['short_language_name']); ?>
-                                                </div>
+                                                    </div>
+
                                                     <?php if (!empty($other_langs)): ?>
                                                         <ul class="lang-dropdown" id="lang-dropdown">
                                                             <?php foreach ($other_langs as $lang): ?>
@@ -71,19 +75,20 @@
                                                             <?php endforeach; ?>
                                                         </ul>
                                                     <?php endif; ?>
-                                            
+                                                </div>
                                             <?php endif; ?>
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                    <a href="#" class="btnSearch">
+
+                                <a href="#" class="btnSearch">
                                     <svg class="searchIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
                                         <path d="M11.2162 10.8076L15 14.5M13.1081 6.40779C13.1081 9.67058 10.3976 12.3156 7.05405 12.3156C3.71049 12.3156 1 9.67058 1 6.40779C1 3.14501 3.71049 0.5 7.05405 0.5C10.3976 0.5 13.1081 3.14501 13.1081 6.40779Z" stroke="#0A1A2D" stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg>
                                 </a>
-                                </div>
                             </nav>
                         </div>
+
                         <div class="searchSection">
                             <form action="<?php echo home_url('/'); ?>" method="get">
                                 <input type="text" name="s" id="search" placeholder="Buscar..." value="<?php the_search_query(); ?>">
@@ -91,8 +96,8 @@
                             </form>
                             <div class="overlay"></div>
                         </div>
-                    <div>
-                </div>
-            </div>
+                    </div> <!-- cierra .col-12 -->
+                </div> <!-- cierra .row -->
+            </div> <!-- cierra .container -->
         </nav>
     </header>
