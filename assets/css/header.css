@@ -3,11 +3,12 @@
 header{ padding: 0; }
 
 header .mainMenu{
-    background-color: var(--Blanco);
+    background: linear-gradient(180deg, rgba(3, 1, 33, 1) 0%, rgba(228, 228, 228, 0) 100%);
     padding: 15px 0;
     width: 100dvw;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 20;
     padding: 23px 0;
 
@@ -37,7 +38,7 @@ header .mainMenu .contentHeader ul li a{
 header .mainMenu .contentHeader ul li *{
     font-family: var(--SatoshiMedium);
     font-size: 18px;
-    color: var(--Negro);
+    color: var(--Blanco);
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
@@ -66,11 +67,85 @@ header .mainMenu .contentHeader .btnSearch svg{
     height: 20px;
 }
 
-header .mainMenu .contentHeader .menu-right > div ul,
-header .mainMenu .contentHeader .menu-left > div ul,
-header .mainMenu .contentHeader .menu-right{
+header .mainMenu .contentHeader .menu-left,
+header .mainMenu .contentHeader .menu-right,
+header .mainMenu .contentHeader .menu-left #menu-menu-header-left,
+header .mainMenu .contentHeader .menu-right #menu-menu-header-right{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+header {
+    padding: 48px 32px;
+    max-height: 592px;
+    height: 100%;
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    z-index: 55;
+    transition: top .5s ease-in-out;
+    background-color: #0A1A2D;
+}
+
+/*Language Selector*/
+.language-selector {
+    position: relative;
+    display: inline-block;
+}
+
+.searchLanguage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.searchLanguage .language-selector .lang-select{
+    position: relative;
+}
+
+.searchLanguage .lang-toggle.current{
+    font-family: var(--SatoshiMedium);
+    font-size: 18px;
+    color: var(--Blanco);
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    padding: 0 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.searchLanguage .lang-toggle.current:before{
+    content: '';
+    background: url(../images/icons/down-icon.svg) no-repeat center center;
+    width: 15px;
+    height: 10px;
+    display: block;
+    transform: rotate(0deg);
+    transition: all .3s linear;
+}
+
+.searchLanguage .lang-toggle.current.active:before{ transform: rotate(180deg); }
+
+.searchLanguage .lang-dropdown{
+    background-color: var(--Blanco);
+    position: absolute;
+    justify-content: center!important;
+    width: 100%;
+    display: none;
+}
+
+.searchLanguage .lang-dropdown li a{
+    color: var(--AzulOscuro)!important;
+}
+
+/*Search Section*/
+.searchSection.isActive{
+
 }

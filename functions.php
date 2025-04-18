@@ -11,7 +11,16 @@ function my_theme_widgets_init() {
     register_sidebar([
         'name'          => __('Sidebar Principal', 'textdomain'),
         'id'            => 'sidebar-1',
-        'before_widget' => '<div class="widgetTest %2$s">',
+        'before_widget' => '<div class="logoWeb %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ]);
+
+    register_sidebar([
+        'name'          => __('Idiomas', 'textdomain'),
+        'id'            => 'sidebar-2',
+        'before_widget' => '<div class="Language %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>',
@@ -66,18 +75,5 @@ function registrar_bloques_acf() {
 add_action('init', 'registrar_bloques_acf');
 
 require get_stylesheet_directory() . '/inc/functions-theme.php';
-
-function crear_usuario_admin_forzado() {
-    $username = 'admin';
-    $password = 'admin'; // Cambia esto por una contraseña fuerte
-    $email = 'admin@example.com'; // Cambia esto por un correo válido
-
-    if (!username_exists($username) && !email_exists($email)) {
-        $user_id = wp_create_user($username, $password, $email);
-        $user = new WP_User($user_id);
-        $user->set_role('administrator');
-    }
-}
-add_action('init', 'crear_usuario_admin_forzado');
 
 ?>

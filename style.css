@@ -11,6 +11,14 @@ Text Domain: elafrios-tachy
 */
 
 /* Reset básico */
+html{ margin-top: 0!important; }
+
+#wpadminbar {
+  top: auto !important;
+  bottom: 0;
+  position: fixed !important;
+}
+
 * {
   margin: 0;
   padding: 0;

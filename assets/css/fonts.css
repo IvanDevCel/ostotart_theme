@@ -1,27 +1,48 @@
 @font-face {
-    font-family: "Satoshi";
+    font-family: "SatoshiLight";
     src: url("../../assets/fonts/Satoshi/Satoshi-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Satoshi";
+    font-family: "SatoshiRegular";
     src: url("../../assets/fonts/Satoshi/Satoshi-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Satoshi";
+    font-family: "SatoshiMedium";
     src: url("../../assets/fonts/Satoshi/Satoshi-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Satoshi";
+    font-family: "SatoshiVariable";
     src: url("../../assets/fonts/Satoshi/Satoshi-Variable.ttf") format("truetype");
     font-weight: 300 700;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'BoskaRegular';
+    src: url('../../assets/fonts/Boska/Boska-Regular.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BoskaVariable';
+    src: url('../../assets/fonts/Boska/Boska-Variable.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BoskaMedium';
+    src: url('../../assets/fonts/Boska/Boska-Medium.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
 }

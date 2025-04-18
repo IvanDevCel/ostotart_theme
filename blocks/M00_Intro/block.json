@@ -1,0 +1,20 @@
+{
+    "name": "acf/intro",
+    "title": "Intro",
+    "description": "Intro",
+    "category": "content-blocks",
+    "icon": "menu",
+    "keywords": ["Intro","Intro"],
+    "textdomain": "ostotart",
+    "acf": {
+      "mode": "edit",
+      "renderTemplate": "index.php"
+    },
+    "supports": {
+      "anchor": true,
+      "mode": true
+    },
+    "viewStyle": ["file:./style.css"],
+    "editorStyle": ["file:./style.css"],
+    "viewScript": ["file:./main.js"]
+  }

@@ -1,5 +1,12 @@
 .VideoUrl{
-    padding: 80px 0;
+    width: 100%;
+    height: 100dvh;
+}
+
+.VideoUrl iframe,
+.VideoUrl .bodyVideo{
+    width: 100%;
+    height: 100%;
 }
 
 .VideoUrl .title{
