@@ -1,5 +1,5 @@
-<svg width="512" height="150" viewBox="0 0 10 100" xmlns="http://www.w3.org/2000/svg">
-  <style>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="130 61 253 48">
+  <ns0:style>
     @font-face {
       font-family: 'Boska';
       src: url('../assets/fonts/Boska/Boska-Medium.woff') format('woff');
@@ -13,7 +13,7 @@
       dominant-baseline: middle;
       text-anchor: middle;
     }
-  </style>
-  <rect width="100%" height="100%" fill="none"/>
-  <text x="50%" y="50%" class="text">OstotArt</text>
-</svg>
+  </ns0:style>
+  <ns0:rect width="100%" height="100%" fill="none" />
+  <ns0:text x="50%" y="50%" class="text">OstotArt</ns0:text>
+</ns0:svg>

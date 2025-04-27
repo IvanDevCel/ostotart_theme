@@ -22,12 +22,32 @@ header .mainMenu .contentHeader{
     transition: all .3s ease-in;
 }
 
+@media screen and (max-width: 992px){
+    header .mainMenu .contentHeader{
+        padding: 10px 0;
+    }
+}
+
+header .mainMenu .contentHeader .logoHeader .custom-logo-link{
+    height: 100%;
+    display: block;
+}
 
 header .mainMenu .contentHeader .logoHeader .custom-logo-link img{
     width: 200px;
     height: 100px;
-    object-fit: cover;
+    object-fit: contain;
+}
 
+@media screen and (max-width: 992px){
+    header .mainMenu .contentHeader .logoHeader .custom-logo-link img{
+        width: 150px;
+        height: 80px;
+    }
+
+    body:has(.Intro) header .mainMenu .contentHeader .logoHeader {
+        transform: translate(calc(45vw - 50%), 45vh) scale(2);
+    }
 }
 
 header .mainMenu .contentHeader ul{
@@ -234,24 +254,23 @@ header .offCanvasIcon{
     max-width: 1154px;
   }
   
-  @media screen and (max-width: 992px) {
-    .offCanvasMenu .contentNavigation {
-      padding: 16px;
-    }
-  }
-  
   @media screen and (max-width: 767px) {
     .offCanvasMenu .contentNavigation {
-      width: 100%;
+      max-width: 100%;
     }
   }
   
+.offCanvasMenu .menu-container-left{
+    margin-bottom: 10px;
+}
+
   .offCanvasMenu ul {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     padding: 0;
     margin: 0;
+    align-items: flex-end;
   }
   
   .offCanvasMenu ul .menu-item {
@@ -263,12 +282,12 @@ header .offCanvasIcon{
     position: relative;
     display: block;
     color: var(--Blanco);
-    font-family: var(--SatoshiRegular);
+    font-family: var(--SatoshiMedium);
     font-size: 16px;
     font-weight: 400;
     line-height: 125%;
     letter-spacing: -0.111px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     text-decoration: none;
   }
   
@@ -295,52 +314,5 @@ header .offCanvasIcon{
     gap: 32px;
     padding: 0 0 48px 0;
     margin: 0;
-  }
-  
-  @media screen and (max-width: 767px) {
-    .offCanvasMenu .menu-main-menu-container #menu-main-menu {
-      padding: unset;
-      gap: 0;
-      margin-bottom: 68px;
-    }
-  }
-  
-  .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item {
-    list-style: none;
-  }
-  
-  @media screen and (max-width: 767px) {
-    .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item {
-      padding-bottom: 40px;
-      transition: opacity 0.5s linear;
-    }
-  }
-  
-  .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item a {
-    width: fit-content;
-    position: relative;
-    display: block;
-    color: #ffffff;
-    font-family: 'Sailec-Light', sans-serif;
-    font-size: 24px;
-    font-weight: 300;
-    line-height: 120%;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-  
-  .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item a::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0;
-    height: 1px;
-    background-color: #ffffff;
-    transition: width 0.5s ease-in-out;
-  }
-  
-  .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item a:hover::before {
-    width: 100%;
   }
   

@@ -4,8 +4,10 @@ body:has(.Intro) header .mainMenu .menu-left{
     transform: translateY(-250px);
 }
 
-body:has(.Intro) header .mainMenu .contentHeader .logoHeader{ 
-    transform: translateY(45vh) scale(3);
+@media screen and (min-width: 992px){
+    body:has(.Intro) header .mainMenu .contentHeader .logoHeader{ 
+        transform: translateY(45vh) scale(3);
+    }
 }
 
 body:has(.Intro).startInit header .mainMenu .contentHeader .logoHeader{ 
@@ -31,8 +33,6 @@ body:has(.Intro).startInit header .mainMenu .menu-left{
     align-items: center;
     position: relative;
 }
-
-
 
 .Intro .bodyVideo{
     position: absolute;
