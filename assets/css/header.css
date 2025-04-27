@@ -10,7 +10,7 @@ header .mainMenu{
     top: 0;
     left: 0;
     z-index: 20;
-    padding: 23px 0;
+    padding: 0;
 
 }
 
@@ -19,8 +19,16 @@ header .mainMenu .contentHeader{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    transition: all .3s ease-in;
 }
 
+
+header .mainMenu .contentHeader .logoHeader .custom-logo-link img{
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+
+}
 
 header .mainMenu .contentHeader ul{
     padding: 0;
@@ -75,6 +83,7 @@ header .mainMenu .contentHeader .menu-right #menu-menu-header-right{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
 }
 
 header {
@@ -95,18 +104,18 @@ header {
     display: inline-block;
 }
 
-.searchLanguage{
+.iconsBtn{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
 }
 
-.searchLanguage .language-selector .lang-select{
+.iconsBtn .language-selector .lang-select{
     position: relative;
 }
 
-.searchLanguage .lang-toggle.current{
+.iconsBtn .lang-toggle.current{
     font-family: var(--SatoshiMedium);
     font-size: 18px;
     color: var(--Blanco);
@@ -121,7 +130,7 @@ header {
     cursor: pointer;
 }
 
-.searchLanguage .lang-toggle.current:before{
+.iconsBtn .lang-toggle.current:before{
     content: '';
     background: url(../images/icons/down-icon.svg) no-repeat center center;
     width: 15px;
@@ -131,9 +140,9 @@ header {
     transition: all .3s linear;
 }
 
-.searchLanguage .lang-toggle.current.active:before{ transform: rotate(180deg); }
+.iconsBtn .lang-toggle.current.active:before{ transform: rotate(180deg); }
 
-.searchLanguage .lang-dropdown{
+.iconsBtn .lang-dropdown{
     background-color: var(--Blanco);
     position: absolute;
     justify-content: center!important;
@@ -141,7 +150,7 @@ header {
     display: none;
 }
 
-.searchLanguage .lang-dropdown li a{
+.iconsBtn .lang-dropdown li a{
     color: var(--AzulOscuro)!important;
 }
 
@@ -158,3 +167,180 @@ header {
 .searchSection.isActive{
     top: 0;
 }
+
+header .offCanvasIcon{ display: none; }
+header .offCanvasIcon{
+    border-radius: 186px;
+    border: 1px solid var(--AzulOscuro);
+    background-color: var(--Blanco);
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 992px){
+    header .mainMenu .contentHeader .menu-left,
+    header .mainMenu .contentHeader .menu-container-right,
+    header .mainMenu .contentHeader .language-selector,
+    header .mainMenu .contentHeader .btnSearch{
+        display: none;
+    }
+
+    header .offCanvasIcon{ display: block; }
+}
+
+
+/* ===============
+   OFFCANVAS MENU CSS (Convertido de SCSS a CSS puro)
+   =============== */
+
+   .offCanvasMenu {
+    width: 100dvw;
+    min-height: 100dvh;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -100dvw;
+    transition: all 0.5s ease-in-out;
+    z-index: 99999;
+    background-repeat: no-repeat;
+    background-position: top right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  
+  .offCanvasMenu.open {
+    right: 0;
+  }
+  
+  .offCanvasMenu .contentNavigation {
+    max-width: calc(((100vw - 1320px) / 4) + 510px);
+    transition: max-width 0.5s ease-in;
+    width: 100%;
+    height: 100%;
+    background-color: var(--AzulOscuro);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .offCanvasMenu .contentNavigation.subActive {
+    max-width: 1154px;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .offCanvasMenu .contentNavigation {
+      padding: 16px;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .offCanvasMenu .contentNavigation {
+      width: 100%;
+    }
+  }
+  
+  .offCanvasMenu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .offCanvasMenu ul .menu-item {
+    list-style: none;
+    transition: all 0.5s linear;
+  }
+  
+  .offCanvasMenu ul .menu-item a {
+    position: relative;
+    display: block;
+    color: var(--Blanco);
+    font-family: var(--SatoshiRegular);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 125%;
+    letter-spacing: -0.111px;
+    text-transform: capitalize;
+    text-decoration: none;
+  }
+  
+  .offCanvasMenu ul .menu-item a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--AzulOscuro);
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .offCanvasMenu ul .menu-item a:hover::before {
+    width: 100%;
+  }
+  
+  .offCanvasMenu .menu-main-menu-container #menu-main-menu {
+    max-width: 246px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 0 48px 0;
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .offCanvasMenu .menu-main-menu-container #menu-main-menu {
+      padding: unset;
+      gap: 0;
+      margin-bottom: 68px;
+    }
+  }
+  
+  .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item {
+    list-style: none;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item {
+      padding-bottom: 40px;
+      transition: opacity 0.5s linear;
+    }
+  }
+  
+  .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item a {
+    width: fit-content;
+    position: relative;
+    display: block;
+    color: #ffffff;
+    font-family: 'Sailec-Light', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 120%;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  
+  .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background-color: #ffffff;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .offCanvasMenu .menu-main-menu-container #menu-main-menu .menu-item a:hover::before {
+    width: 100%;
+  }
+  

@@ -1,5 +1,8 @@
+.noScroll{ overflow-y: hidden;}
+#trp-floater-ls{ display: none!important; }
 .site-main{
     padding: unset;
     margin: unset;
     max-width: 100%;
-  }
+    margin-top: 120px;
+}

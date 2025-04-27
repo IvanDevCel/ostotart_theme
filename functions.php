@@ -2,7 +2,9 @@
 function my_theme_setup() {
     add_theme_support('widgets');
     add_theme_support('align-wide');
+    add_theme_support('custom-logo');
 }
+
 add_action('after_setup_theme', 'my_theme_setup');
 
 

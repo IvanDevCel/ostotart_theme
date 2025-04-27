@@ -1,7 +1,55 @@
+/*Animations Effects*/
+body:has(.Intro) header .mainMenu .menu-right,
+body:has(.Intro) header .mainMenu .menu-left{
+    transform: translateY(-250px);
+}
+
+body:has(.Intro) header .mainMenu .contentHeader .logoHeader{ 
+    transform: translateY(45vh) scale(3);
+}
+
+body:has(.Intro).startInit header .mainMenu .contentHeader .logoHeader{ 
+    transition: all 1s linear;
+    transform: translateY(0) scale(1);
+}
+
+body:has(.Intro).startInit header .mainMenu .menu-right,
+body:has(.Intro).startInit header .mainMenu .menu-left{ 
+    transform: translateY(0);
+    transition: all 1s linear;
+}
+/*Css normal styles*/
 .Intro{
+    margin-top: -120px;
     background: rgb(49,47,103);
     background: linear-gradient(180deg, rgba(49,47,103,1) 0%, rgba(255,255,255,0) 100%);
     padding: 64px 0;
     height: 100dvh;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+
+.Intro .bodyVideo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.Intro .bodyVideo video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.Intro .toDown{
+    position: relative;
+    z-index: 10;
 }

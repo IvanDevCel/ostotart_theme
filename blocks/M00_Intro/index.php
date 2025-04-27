@@ -23,23 +23,15 @@ if (!empty($block['align'])) {
 $fields = get_fields();
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className);?>">
-    <div class="introSvg">
-        <img src="<?php echo get_template_directory_uri(); ?>/blocks/M00_Intro/img/Intro.svg" alt="Intro">
+    <div class="introWeb">
+        <?php the_custom_logo(); ?>
     </div>
-
-    <iframe 
-  width="560" 
-  height="315" 
-  src="https://www.youtube.com/embed/01ToCVSVtbI?autoplay=1&loop=1&playlist=01ToCVSVtbI&controls=0&modestbranding=1&showinfo=0&rel=0" 
-  frameborder="0" 
-  allow="autoplay; encrypted-media" 
-  allowfullscreen>
-</iframe>
-
-    <div class="bodyVideo">
-        <!--Video Url-->
-        <?php if(isset($fields["url_video"])): ?>
-            <iframe src="<?= $fields["url_video"] ?>" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" controls="0" autoplay="1"></iframe>
-        <?php endif; ?>
-    </div>
+    <?php if(isset($fields["archivo_video"]["url"])): ?>
+        <div class="bodyVideo">
+            <video class="video" autoplay muted loop playsinline>
+                <source src="<?= $fields["archivo_video"]["url"]; ?>" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    <?php endif; ?>
 </div>

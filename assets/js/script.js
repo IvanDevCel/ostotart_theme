@@ -23,4 +23,18 @@ jQuery(document).ready(function($) {
         }
     });
 
+    $('.offCanvasIcon').on('click', function (event) {
+        console.log("open!!");
+        event.preventDefault(); // Evita que haga scroll al principio
+        $('body').addClass('noScroll');
+        $('.menuCont .overlay').fadeIn(500);
+        $('.offCanvasMenu').toggleClass('open');
+    });
+
+    $('.offCanvasMenu .closeOffCanvas').on('click', function () {
+        $('body').removeClass('noScroll');
+        $('.menuCont .overlay').fadeOut(500);
+        $('.offCanvasMenu').removeClass('open submenuIsOpen');
+    });
+
 });
