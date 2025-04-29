@@ -34,6 +34,19 @@ body:has(.Intro).startInit header .mainMenu .menu-left{
     position: relative;
 }
 
+.Intro:before{
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #1C1B38 0%, #1C1B3800 55%);
+    opacity: 1;
+    z-index: 5;
+}
+
 .Intro .bodyVideo{
     position: absolute;
     top: 0;

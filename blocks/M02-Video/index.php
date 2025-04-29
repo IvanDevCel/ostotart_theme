@@ -28,5 +28,15 @@ $fields = get_fields();
         <?php if(isset($fields["url_video"])): ?>
             <iframe src="<?= $fields["url_video"] ?>" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" controls="0" autoplay="1"></iframe>
         <?php endif; ?>
+
+        <?php if(isset($fields["archivo_video"]["url"])): ?>
+        <div class="bodyVideo">
+            <video class="video" autoplay muted loop playsinline>
+                <source src="<?= $fields["archivo_video"]["url"]; ?>" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+        <?php endif; ?>
     </div>
+
 </div>

@@ -10,7 +10,7 @@ header .mainMenu{
     top: 0;
     left: 0;
     z-index: 20;
-    padding: 0;
+    padding: 30px 0;
 
 }
 
@@ -64,8 +64,9 @@ header .mainMenu .contentHeader ul li a{
 }
 
 header .mainMenu .contentHeader ul li *{
-    font-family: var(--RalewayVariable);
-    font-size: 18px;
+    font-family: var(--SatoshiVariable);
+    font-weight: 300;
+    font-size: 20px;
     color: var(--Blanco);
     text-decoration: none;
     text-transform: uppercase;
@@ -179,7 +180,7 @@ header {
     height: 40vh;
     padding: 20px;
     width: 100%;
-    background-color: var(--AzulOscuro);
+    background-color: var(--Dorado);
     position: fixed;
     top: -100%;
     transition: top .5s ease-in-out;
@@ -284,7 +285,7 @@ header .offCanvasIcon{
     position: relative;
     display: block;
     color: var(--Blanco);
-    font-family: var(--SatoshiMedium);
+    font-family: var(--SatoshiVariable);
     font-size: 18px;
     font-weight: 400;
     line-height: 125%;
@@ -321,6 +322,10 @@ header .offCanvasIcon{
   @media screen and (max-width: 992px){
     .offCanvasMenu ul .menu-item a {
         font-size: 32px;
-      }
+    }
+
+    header .mainMenu{
+        padding: 15px 0;
+    }
   }
   

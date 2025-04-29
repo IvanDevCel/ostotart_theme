@@ -40,7 +40,6 @@ add_action('wp_head', function() {
 function my_custom_theme_assets() {
     wp_enqueue_style('my-theme-root-style', get_stylesheet_uri(), [], '1.0');
     wp_enqueue_style('my-theme-assets-style', get_template_directory_uri() . '/assets/css/style.css', [], '1.0');
-    wp_enqueue_script('my-theme-script', get_template_directory_uri() . '/assets/js/script.js', [], '1.0', true);
     // Estilos principales
     wp_enqueue_style('my-theme-style', get_template_directory_uri() . '/assets/css/style.css', [], '1.0');
 
@@ -52,6 +51,7 @@ function my_custom_theme_assets() {
 
     // Scripts
     wp_enqueue_script('my-theme-script', get_template_directory_uri() . '/assets/js/script.js', [], '1.0', true);
+    wp_enqueue_script('my-theme-ajax', get_template_directory_uri() . '/assets/js/ajax-search.js', [], '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'my_custom_theme_assets');
 
@@ -77,5 +77,47 @@ function registrar_bloques_acf() {
 add_action('init', 'registrar_bloques_acf');
 
 require get_stylesheet_directory() . '/inc/functions-theme.php';
+
+function my_enqueue_ajax_script() {
+    wp_enqueue_script('ajax-search', get_template_directory_uri() . '/assets/js/ajax-search.js', array('jquery'), '1.0', true);
+
+    wp_localize_script('ajax-search', 'ajax_object', array(
+        'ajaxurl' => admin_url('admin-ajax.php')
+    ));
+}
+add_action('wp_enqueue_scripts', 'my_enqueue_ajax_script');
+
+// Añadir el manejador de AJAX
+add_action('wp_ajax_custom_search', 'custom_search_ajax_handler');
+add_action('wp_ajax_nopriv_custom_search', 'custom_search_ajax_handler');
+
+function custom_search_ajax_handler() {
+    $search_query = sanitize_text_field($_POST['query']);
+
+    $args = array(
+        's' => $search_query,
+        'post_type' => array('post', 'page', 'product'), // cambia aquí
+        'posts_per_page' => 10,
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        $results = [];
+
+        while ($query->have_posts()) {
+            $query->the_post();
+            $results[] = array(
+                'title' => get_the_title(),
+                'link'  => get_permalink(),
+            );
+        }
+        wp_reset_postdata();
+        echo json_encode($results);
+    } else {
+        echo json_encode([]);
+    }
+    wp_die(); // Siempre termina con wp_die() en acciones AJAX
+}
 
 ?>

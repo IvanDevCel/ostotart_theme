@@ -136,6 +136,8 @@ footer .downFooter .legals{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 100%;
+    align-items: center;
 }
 
 footer .downFooter .legals a{
@@ -149,7 +151,7 @@ footer .downFooter .legals a{
 }
 
 footer .downFooter .legals a:hover{
-    text-decoration: underline;
+    color: var(--Dorado2);
 }
 
 @media screen and (max-width: 992px){

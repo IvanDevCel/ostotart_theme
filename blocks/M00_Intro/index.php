@@ -23,9 +23,6 @@ if (!empty($block['align'])) {
 $fields = get_fields();
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className);?>">
-    <div class="introWeb">
-        <?php the_custom_logo(); ?>
-    </div>
     <?php if(isset($fields["archivo_video"]["url"])): ?>
         <div class="bodyVideo">
             <video class="video" autoplay muted loop playsinline>

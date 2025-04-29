@@ -97,10 +97,9 @@
                         </div>
 
                         <div class="searchSection">
-                            <form action="<?php echo home_url('/'); ?>" method="get">
-                                <input type="text" name="s" id="search" placeholder="Buscar..." value="<?php the_search_query(); ?>">
-                                <button type="submit">Que necesitas</button>
-                            </form>
+                            <button id="my-button">click me</button>
+                            <input type="text" id="search-input" placeholder="Buscar...">
+                            <div id="search-results"></div>
                             <div class="overlay"></div>
                         </div>
                     </div> 
