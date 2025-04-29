@@ -2,11 +2,14 @@
 
 :root {
     /*Font families variables*/
-    --SatoshiRegular: "Satoshi-Regular", sans-serif;
-    --SatoshiMedium: "Satoshi-Medium", sans-serif;
-    --SatoshiLight: "Satoshi-Light", sans-serif;
     --SatoshiVariable: "Satoshi-Variable", sans-serif;
-
+    --SatoshiVariableItalic: "Satoshi-VariableItalic", sans-serif;
+    --BoskaRegular: "BoskaRegular", sans-serif;
+    --BoskaItalic: "BoskaItalic", sans-serif;
+    --BoskaMedium: "BoskaMedium", sans-serif;
+    --RalewayVariableItalic: "RalewayVariableItalic", sans-serif;
+    --RalewayVariable: "RalewayVariable", sans-serif;
+    
     /*Color Variables*/
     --Blanco: #FFFFFF;
     --Dorado: #E9D9B8;

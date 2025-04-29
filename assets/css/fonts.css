@@ -1,30 +1,25 @@
 @font-face {
-    font-family: "SatoshiLight";
-    src: url("../../assets/fonts/Satoshi/Satoshi-Light.ttf") format("truetype");
-    font-weight: 300;
+    font-family: 'Satoshi-Variable';
+    src: url('../../assets/fonts/Satoshi/Satoshi-Variable.ttf') format('truetype');
+    font-weight: 300 900;
+    font-display: swap;
     font-style: normal;
-}
-
-@font-face {
-    font-family: "SatoshiRegular";
-    src: url("../../assets/fonts/Satoshi/Satoshi-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "SatoshiMedium";
-    src: url("../../assets/fonts/Satoshi/Satoshi-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "SatoshiVariable";
-    src: url("../../assets/fonts/Satoshi/Satoshi-Variable.ttf") format("truetype");
-    font-weight: 300 700;
-    font-style: normal;
-}
+  }
+  /**
+  * This is a variable font
+  * You can control variable axes as shown below:
+  * font-variation-settings: wght 900.0;
+  *
+  * available axes:
+  'wght' (range from 300.0 to 900.0
+  */
+  @font-face {
+    font-family: 'Satoshi-VariableItalic';
+    src: url('../../assets/fonts/Satoshi/Satoshi-VariableItalic.ttf') format('truetype');
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: italic;
+  }
 
 @font-face {
     font-family: 'BoskaRegular';
@@ -43,6 +38,27 @@
 @font-face {
     font-family: 'BoskaMedium';
     src: url('../../assets/fonts/Boska/Boska-Medium.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BoskaItalic';
+    src: url('../../assets/fonts/Boska/Boska-Italic.woff2') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RalewayVariableItalic';
+    src: url('../../assets/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf') format('ttf');
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RalewayVariable';
+    src: url('../../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf') format('ttf');
     font-style: normal;
     font-display: swap;
 }
