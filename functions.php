@@ -11,7 +11,7 @@ add_action('after_setup_theme', 'my_theme_setup');
 /*Widgets*/
 function my_theme_widgets_init() {
     register_sidebar([
-        'name'          => __('Sidebar Principal', 'textdomain'),
+        'name'          => __('Footer', 'textdomain'),
         'id'            => 'sidebar-1',
         'before_widget' => '<div class="logoWeb %2$s">',
         'after_widget'  => '</div>',
@@ -20,7 +20,7 @@ function my_theme_widgets_init() {
     ]);
 
     register_sidebar([
-        'name'          => __('Idiomas', 'textdomain'),
+        'name'          => __('Header', 'textdomain'),
         'id'            => 'sidebar-2',
         'before_widget' => '<div class="Language %2$s">',
         'after_widget'  => '</div>',

@@ -1,0 +1,1 @@
+console.log("Bloque M02 cargado en el editor.");

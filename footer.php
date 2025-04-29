@@ -2,12 +2,12 @@
     <div class="container">
         <div class="upperFooter">
             <div class="row">
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-md-4 col-lg-3">
                     <div class="logoHeader">
                         <?php the_custom_logo(); ?>
                     </div>
                 </div>
-                <div class="col-12 col-lg-8">
+                <div class="col-12 col-md-8 col-lg-9">
                     <div class="langAndMenus">
                         <div class="language-selector" data-no-translation>
                                 <?php
@@ -65,16 +65,27 @@
                 </div>
             </div>
         </div>
-        <div class="downFooter">
-            <div class="row">
-                <div class="socialMedia">
-
-                </div>
-            </div>
-        </div>
     </div>
     <div class="marquee-container" id="marquee-container">
         <span class="base-phrase">ÓSCAR TORRES VICEDO</span>
+    </div>
+    <div class="container">
+        <div class="downFooter">
+            <div class="row">
+                <div class="col-12 col-lg-3">
+                    <div class="socialMedia">
+                        <?= get_sidebar('footer'); ?>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 offset-lg-4">
+                    <div class="legals">
+                        <a href="#">Copyright</a>
+                        <a href="#">Copyright</a>
+                        <a href="#">Copyright</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 <?php wp_footer(); ?>
