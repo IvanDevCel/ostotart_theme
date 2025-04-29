@@ -37,69 +37,84 @@ jQuery(document).ready(function($) {
         $('.offCanvasMenu').removeClass('open submenuIsOpen');
     });
 
-    /*Infinite loop text*/
     const container = document.getElementById('marquee-container');
-    const baseSpan = container.querySelector('.base-phrase');
-    const spacing = 50;
-    const speed = 1.5;
-    let activePhrases = [];
+const baseSpan = container.querySelector('.base-phrase');
+const spacing = 50; // puedes convertir esto en responsive si quieres
+const speed = 1.5;
+let activePhrases = [];
 
-    function createPhrase(leftPosition) {
-      const clone = baseSpan.cloneNode(true);
-      clone.classList.remove('base-phrase');
-      clone.classList.add('phrase');
-      clone.style.left = `${leftPosition}px`;
-      clone.style.position = 'absolute';
-      container.appendChild(clone);
-      activePhrases.push(clone);
-    }
+function createPhrase(leftPosition) {
+  const clone = baseSpan.cloneNode(true);
+  clone.classList.remove('base-phrase');
+  clone.classList.add('phrase');
+  clone.style.left = `${leftPosition}px`;
+  clone.style.position = 'absolute';
+  container.appendChild(clone);
+  activePhrases.push(clone);
+}
 
-    function fillInitialPhrases() {
-      activePhrases.forEach(el => el.remove());
-      activePhrases = [];
+function fillInitialPhrases() {
+  // Elimina las frases anteriores
+  activePhrases.forEach(el => el.remove());
+  activePhrases = [];
 
-      let left = 0;
-      while (left < container.offsetWidth * 2) {
-        const temp = baseSpan.cloneNode(true);
-        temp.classList.remove('base-phrase');
-        temp.classList.add('phrase');
-        temp.style.left = `${left}px`;
-        temp.style.position = 'absolute';
-        container.appendChild(temp);
-        activePhrases.push(temp);
-        left += temp.offsetWidth + spacing;
-      }
-    }
+  let left = 0;
 
-    function loop() {
-      for (let i = 0; i < activePhrases.length; i++) {
-        const el = activePhrases[i];
-        let currentLeft = parseFloat(el.style.left);
-        el.style.left = `${currentLeft - speed}px`;
-      }
+  // ✅ Medimos correctamente la frase una vez visible
+  const probe = baseSpan.cloneNode(true);
+  probe.classList.remove('base-phrase');
+  probe.classList.add('phrase');
+  probe.style.position = 'absolute';
+  probe.style.left = '0px';
+  probe.style.visibility = 'hidden';
+  container.appendChild(probe);
 
-      if (activePhrases.length && parseFloat(activePhrases[0].style.left) + activePhrases[0].offsetWidth < 0) {
-        container.removeChild(activePhrases[0]);
-        activePhrases.shift();
-      }
+  const phraseWidth = probe.offsetWidth;
+  container.removeChild(probe);
 
-      const last = activePhrases[activePhrases.length - 1];
-      if (last && parseFloat(last.style.left) + last.offsetWidth + spacing < container.offsetWidth) {
-        const newLeft = parseFloat(last.style.left) + last.offsetWidth + spacing;
-        createPhrase(newLeft);
-      }
+  const containerWidth = container.offsetWidth;
+  const targetWidth = containerWidth * 2.5;
 
-      requestAnimationFrame(loop);
-    }
+  while (left < targetWidth) {
+    createPhrase(left);
+    left += phraseWidth + spacing;
+  }
 
-    window.addEventListener('load', () => {
-      baseSpan.style.position = 'absolute';
-      baseSpan.style.left = '-9999px';
-      fillInitialPhrases();
-      loop();
-    });
+  if (activePhrases.length > 0) {
+    activePhrases[0].style.left = '0px'; // Asegura que empiece desde el borde izquierdo
+  }
+}
 
-    window.addEventListener('resize', () => {
-      fillInitialPhrases();
-    });
+function loop() {
+  for (let i = 0; i < activePhrases.length; i++) {
+    const el = activePhrases[i];
+    let currentLeft = parseFloat(el.style.left);
+    el.style.left = `${currentLeft - speed}px`;
+  }
+
+  if (activePhrases.length && parseFloat(activePhrases[0].style.left) + activePhrases[0].offsetWidth < 0) {
+    container.removeChild(activePhrases[0]);
+    activePhrases.shift();
+  }
+
+  const last = activePhrases[activePhrases.length - 1];
+  if (last && parseFloat(last.style.left) + last.offsetWidth + spacing < container.offsetWidth * 2.5) {
+    const newLeft = parseFloat(last.style.left) + last.offsetWidth + spacing;
+    createPhrase(newLeft);
+  }
+
+  requestAnimationFrame(loop);
+}
+
+window.addEventListener('load', () => {
+  baseSpan.style.position = 'absolute';
+  baseSpan.style.left = '-9999px'; // Lo escondemos sin romper render
+  fillInitialPhrases();
+  loop();
+});
+
+window.addEventListener('resize', () => {
+  fillInitialPhrases();
+});
+
 });

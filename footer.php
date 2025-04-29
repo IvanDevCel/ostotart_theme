@@ -72,12 +72,12 @@
     <div class="container">
         <div class="downFooter">
             <div class="row">
-                <div class="col-12 col-lg-3">
+                <div class="col-12 col-md-3">
                     <div class="socialMedia">
                         <?= get_sidebar('footer'); ?>
                     </div>
                 </div>
-                <div class="col-12 col-lg-5 offset-lg-4">
+                <div class="col-12 col-md-7 offset-md-2">
                     <div class="legals">
                         <a href="#">Copyright</a>
                         <a href="#">Copyright</a>
