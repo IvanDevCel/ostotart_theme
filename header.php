@@ -103,7 +103,7 @@
             <div class="overlay"></div>
             <div class="offCanvasMenu d-flex">
                 <div id="site-navigation" class="contentNavigation">
-                    <img class="closeOffCanvas" alt="icon" src="" />
+                    <img class="closeOffCanvas" alt="icon" src="<?= get_template_directory_uri().'/assets/images/icons/close-btn.svg';?>" />
                     <div class="dataMenus">
                     <?php
                                         wp_nav_menu(array(

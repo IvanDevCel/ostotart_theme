@@ -1,0 +1,20 @@
+{
+    "name": "acf/text-image",
+    "title": "M03_Text-image",
+    "description": "text-image block",
+    "category": "content-blocks",
+    "icon": "menu",
+    "keywords": ["text-image","M03"],
+    "textdomain": "ostotart",
+    "acf": {
+      "mode": "edit",
+      "renderTemplate": "index.php"
+    },
+    "supports": {
+      "anchor": true,
+      "mode": true
+    },
+    "viewStyle": ["file:./style.css"],
+    "editorStyle": ["file:./style.css"],
+    "viewScript": ["file:./main.js"]
+  }

@@ -22,21 +22,38 @@ if (!empty($block['align'])) {
 
 $fields = get_fields();
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className);?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className);?>  <?php echo ($fields["ancho_100"] === "normal") ? "normalSize" : ""; ?>">
     <div class="bodyVideo">
         <!--Video Url-->
-        <?php if(isset($fields["url_video"])): ?>
-            <iframe src="<?= $fields["url_video"] ?>" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" controls="0" autoplay="1"></iframe>
-        <?php endif; ?>
+        <?php if (!empty($fields["ancho_100"]) && $fields["ancho_100"] === "normal"): ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <?php if(isset($fields["url_video"])): ?>
+                            <iframe src="<?= $fields["url_video"] ?>" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" controls="0" autoplay="1"></iframe>
+                        <?php endif; ?>
 
-        <?php if(isset($fields["archivo_video"]["url"])): ?>
-        <div class="bodyVideo">
-            <video class="video" autoplay muted loop playsinline>
-                <source src="<?= $fields["archivo_video"]["url"]; ?>" type="video/mp4">
-                Your browser does not support the video tag.
-                </video>
+                        <?php if(isset($fields["archivo_video"]["url"])): ?>
+                            <video class="video" autoplay muted>
+                                <source src="<?= $fields["archivo_video"]["url"]; ?>" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
-        <?php endif; ?>
-    </div>
+            
+            <?php else: ?>
+                <?php if(isset($fields["url_video"])): ?>
+                    <iframe src="<?= $fields["url_video"] ?>" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" controls="0" autoplay="1"></iframe>
+                <?php endif; ?>
 
+                <?php if(isset($fields["archivo_video"]["url"])): ?>
+                    <video class="video" autoplay muted>
+                        <source src="<?= $fields["archivo_video"]["url"]; ?>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                <?php endif; ?>
+            <?php endif; ?>
+    </div>
 </div>

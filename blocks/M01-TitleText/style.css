@@ -1,7 +1,11 @@
 .TitleText{
-    padding: 64px 0;
+    padding: 64px 0 0 0;
 }
 
 .TitleText .title{
-    font-size: 24px;
+    font-size: 56px;
+    font-family: var(--BoskaRegular);
+    color: var(--Dorado);
+    font-weight: 400;
+    line-height: 1.3;
 }

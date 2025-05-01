@@ -1,4 +1,6 @@
 jQuery(document).ready(function($) {
+    AOS.init();
+
    // Selector de idioma con fadeToggle
     const $langSelector = $('.language-selector');
     const $toggleBtn = $langSelector.find('.lang-toggle');

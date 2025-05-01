@@ -24,7 +24,7 @@ header .mainMenu .contentHeader{
 
 @media screen and (max-width: 992px){
     header .mainMenu .contentHeader{
-        padding: 10px 0;
+        padding: 0;
     }
 }
 
@@ -94,6 +94,12 @@ header .mainMenu .contentHeader .btnSearch{
 header .mainMenu .contentHeader .btnSearch svg{
     width: 20px;
     height: 20px;
+}
+
+header .closeOffCanvas{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
 }
 
 header .mainMenu .contentHeader .menu-left,
@@ -218,7 +224,7 @@ header .offCanvasIcon{
     width: 100%;
     height: 100%;
     background-color: var(--AzulOscuro);
-    padding: 32px;
+    padding: 20px 32px 32px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

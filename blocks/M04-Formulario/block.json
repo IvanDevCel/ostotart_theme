@@ -1,0 +1,20 @@
+{
+    "name": "acf/form",
+    "title": "M04_Formulario",
+    "description": "Formulario",
+    "category": "content-blocks",
+    "icon": "menu",
+    "keywords": ["Formulario","M01"],
+    "textdomain": "ostotart",
+    "acf": {
+      "mode": "edit",
+      "renderTemplate": "index.php"
+    },
+    "supports": {
+      "anchor": true,
+      "mode": true
+    },
+    "viewStyle": ["file:./style.css"],
+    "editorStyle": ["file:./style.css"],
+    "viewScript": ["file:./main.js"]
+  }

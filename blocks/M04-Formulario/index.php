@@ -4,7 +4,7 @@
  *
  * @param array $block The block settings and attributes.
  */
-$block_def = "TitleText";
+$block_def = "Formulario";
 // Create id attribute allowing for custom "anchor" value.
 $id = $block_def.'-'.$block['id'];
 if (!empty($block['anchor'])) {
@@ -22,12 +22,11 @@ if (!empty($block['align'])) {
 
 $fields = get_fields();
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className);?>">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="title"><?= $fields["titulo"] ?? ""; ?></div>
-                <div class="text"><?= $fields["texto"] ?? ""; ?></div>
+                <?php echo do_shortcode($fields["formulario_contacto"]); ?>
             </div>
         </div>
     </div>
