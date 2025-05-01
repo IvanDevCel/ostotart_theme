@@ -107,18 +107,6 @@ header .mainMenu .contentHeader .menu-right #menu-menu-header-right{
 
 }
 
-header {
-    padding: 48px 32px;
-    max-height: 592px;
-    height: 100%;
-    position: fixed;
-    top: -100%;
-    width: 100%;
-    z-index: 55;
-    transition: top .5s ease-in-out;
-    background-color: #0A1A2D;
-}
-
 /*Language Selector*/
 .language-selector {
     position: relative;
@@ -175,26 +163,8 @@ header {
     color: var(--AzulOscuro)!important;
 }
 
-/*Search Section*/
-.searchSection{
-    height: 40vh;
-    padding: 20px;
-    width: 100%;
-    background-color: var(--Dorado);
-    position: fixed;
-    top: -100%;
-    transition: top .5s ease-in-out;
-    left: 0;
-}
-
-.searchSection.isActive{
-    top: 0;
-}
-
 header .offCanvasIcon{ display: none; }
 header .offCanvasIcon{
-    border-radius: 186px;
-    border: 1px solid var(--AzulOscuro);
     background-color: var(--Blanco);
     width: 40px;
     height: 40px;
@@ -206,14 +176,16 @@ header .offCanvasIcon{
 @media screen and (max-width: 992px){
     header .mainMenu .contentHeader .menu-left,
     header .mainMenu .contentHeader .menu-container-right,
-    header .mainMenu .contentHeader .language-selector,
-    header .mainMenu .contentHeader .btnSearch{
+    header .mainMenu .contentHeader .language-selector{
         display: none;
     }
 
     header .offCanvasIcon{ display: block; }
 }
 
+.searchCont{
+    
+}
 
 /* ===============
    OFFCANVAS MENU CSS (Convertido de SCSS a CSS puro)
@@ -320,12 +292,10 @@ header .offCanvasIcon{
   }
 
   @media screen and (max-width: 992px){
-    .offCanvasMenu ul .menu-item a {
-        font-size: 32px;
-    }
-
-    header .mainMenu{
-        padding: 15px 0;
-    }
+    header .mainMenu .contentHeader .logoHeader .custom-logo-link,
+    .offCanvasIcon{ margin: 0; }
+    .offCanvasMenu ul .menu-item a { font-size: 32px; }
+    .iconsBtn{ gap: 15px; }
+    header .mainMenu{ padding: 15px 0; }
   }
   

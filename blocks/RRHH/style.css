@@ -25,7 +25,10 @@
 }
 
 @media screen and (max-width: 767px){
-    .RRSS.RRSS .contIcons {
+    .RRSS{
+        margin-bottom: 30px;
+    }
+    .RRSS .contIcons {
         display: flex;
         flex-direction: row;
         gap: 25px;

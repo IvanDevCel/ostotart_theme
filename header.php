@@ -95,13 +95,6 @@
                                 </div>
                             </nav>
                         </div>
-
-                        <div class="searchSection">
-                            <button id="my-button">click me</button>
-                            <input type="text" id="search-input" placeholder="Buscar...">
-                            <div id="search-results"></div>
-                            <div class="overlay"></div>
-                        </div>
                     </div> 
                 </div>
             </div>
@@ -134,5 +127,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="searchCont">
+            <?php dynamic_sidebar('header-searchbar'); ?>
         </div>
     </header>

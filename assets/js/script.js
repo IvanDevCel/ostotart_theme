@@ -1,11 +1,5 @@
 jQuery(document).ready(function($) {
-
-    // Botón de búsqueda
-    $(".btnSearch").on("click", function() {
-        $(".searchSection").toggleClass("isActive");
-    });
-
-    // Selector de idioma con fadeToggle
+   // Selector de idioma con fadeToggle
     const $langSelector = $('.language-selector');
     const $toggleBtn = $langSelector.find('.lang-toggle');
     const $dropdown = $langSelector.find('.lang-dropdown');
@@ -24,7 +18,6 @@ jQuery(document).ready(function($) {
     });
 
     $('.offCanvasIcon').on('click', function (event) {
-        console.log("open!!");
         event.preventDefault(); // Evita que haga scroll al principio
         $('body').addClass('noScroll');
         $('.menuCont .overlay').fadeIn(500);

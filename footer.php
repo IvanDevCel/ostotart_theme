@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-12 col-md-3">
                     <div class="socialMedia">
-                        <?= get_sidebar('footer'); ?>
+                        <?php dynamic_sidebar('footer-rrss'); ?>
                     </div>
                 </div>
                 <div class="col-12 col-md-7 offset-md-2">

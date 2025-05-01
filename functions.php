@@ -9,26 +9,28 @@ add_action('after_setup_theme', 'my_theme_setup');
 
 
 /*Widgets*/
-function my_theme_widgets_init() {
-    register_sidebar([
-        'name'          => __('Footer', 'textdomain'),
-        'id'            => 'sidebar-1',
-        'before_widget' => '<div class="logoWeb %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ]);
+add_action( 'widgets_init', 'my_theme_widgets_init' );
 
-    register_sidebar([
-        'name'          => __('Header', 'textdomain'),
-        'id'            => 'sidebar-2',
-        'before_widget' => '<div class="Language %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ]);
+function my_theme_widgets_init() {
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Footer', 'ostotart' ),
+            'id'            => 'footer-rrss',
+            'description'   => esc_html__( 'Add widgets here.', 'ostotart' ),
+            'before_widget' => '',
+            'after_widget'  => '',
+        ),
+    );
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Header SearchBar', 'ostotart' ),
+            'id'            => 'header-searchbar',
+            'description'   => esc_html__( 'Add widgets here.', 'ostotart' ),
+            'before_widget' => '',
+            'after_widget'  => '',
+        ),
+    );
 }
-add_action('widgets_init', 'my_theme_widgets_init');
 
 add_action('wp_head', function() {
     global $template;
@@ -79,7 +81,7 @@ add_action('init', 'registrar_bloques_acf');
 require get_stylesheet_directory() . '/inc/functions-theme.php';
 
 function my_enqueue_ajax_script() {
-    wp_enqueue_script('ajax-search', get_template_directory_uri() . '/assets/js/ajax-search.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('ajax-search', get_template_directory_uri() . '/blocks/SearchBar/ajax.js', array('jquery'), '1.0', true);
 
     wp_localize_script('ajax-search', 'ajax_object', array(
         'ajaxurl' => admin_url('admin-ajax.php')
@@ -87,37 +89,5 @@ function my_enqueue_ajax_script() {
 }
 add_action('wp_enqueue_scripts', 'my_enqueue_ajax_script');
 
-// Añadir el manejador de AJAX
-add_action('wp_ajax_custom_search', 'custom_search_ajax_handler');
-add_action('wp_ajax_nopriv_custom_search', 'custom_search_ajax_handler');
-
-function custom_search_ajax_handler() {
-    $search_query = sanitize_text_field($_POST['query']);
-
-    $args = array(
-        's' => $search_query,
-        'post_type' => array('post', 'page', 'product'), // cambia aquí
-        'posts_per_page' => 10,
-    );
-
-    $query = new WP_Query($args);
-
-    if ($query->have_posts()) {
-        $results = [];
-
-        while ($query->have_posts()) {
-            $query->the_post();
-            $results[] = array(
-                'title' => get_the_title(),
-                'link'  => get_permalink(),
-            );
-        }
-        wp_reset_postdata();
-        echo json_encode($results);
-    } else {
-        echo json_encode([]);
-    }
-    wp_die(); // Siempre termina con wp_die() en acciones AJAX
-}
-
+require_once get_template_directory() . '/ajax-search.php';
 ?>
