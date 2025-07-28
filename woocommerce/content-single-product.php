@@ -1,0 +1,108 @@
+<?php
+/**
+ * The template for displaying product content in the single-product.php template
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/content-single-product.php.
+ *
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 3.6.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+global $product;
+
+/**
+ * Hook: woocommerce_before_single_product.
+ *
+ * @hooked woocommerce_output_all_notices - 10
+ */
+do_action( 'woocommerce_before_single_product' );
+
+if ( post_password_required() ) {
+	echo get_the_password_form();
+	return;
+}
+?>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+
+	<?php
+	/**
+	 * Hook: woocommerce_before_single_product_summary.
+	 *
+	 * @hooked woocommerce_show_product_sale_flash - 10
+	 * @hooked woocommerce_show_product_images - 20
+	 */
+	do_action( 'woocommerce_before_single_product_summary' );
+	?>
+
+	<div class="summary entry-summary">
+		<?php
+		/**
+		 * Hook: woocommerce_single_product_summary.
+		 *
+		 * @hooked woocommerce_template_single_title - 5
+		 * @hooked woocommerce_template_single_rating - 10
+		 * @hooked woocommerce_template_single_price - 10
+		 * @hooked woocommerce_template_single_excerpt - 20
+		 * @hooked woocommerce_template_single_add_to_cart - 30
+		 * @hooked woocommerce_template_single_meta - 40
+		 * @hooked woocommerce_template_single_sharing - 50
+		 * @hooked WC_Structured_Data::generate_product_data() - 60
+		 */
+		do_action( 'woocommerce_single_product_summary' );
+		?>
+
+		<?php
+		$product_cats = wp_get_post_terms(get_the_ID(), 'product_cat');
+		?>
+		<div class="categories">
+		<?php
+		if (!empty($product_cats) && !is_wp_error($product_cats)) {
+			foreach ($product_cats as $cat) {
+				$cat_link = get_term_link($cat);
+				echo '<a class="categoria-producto" href="' . esc_url($cat_link) . '">' . esc_html($cat->name) . '</a> ';
+			}
+		}
+		?>
+		</div>
+
+
+		<?php
+		$campos_extra = get_field('campos_extra');
+		if ($campos_extra) {
+			echo '<div class="acf-campos-extra">';
+			echo '<ul class="acf-campos-extra-lista">';
+			foreach ($campos_extra as $campo) {
+				$titulo = $campo['titulo'] ?? '';
+				$contenido = $campo['contenido'] ?? '';
+
+				echo '<li class="acf-campo-extra">';
+				if ($titulo) {
+					echo '<strong class="acf-campo-titulo">' . esc_html($titulo) . ':</strong> ';
+				}
+				if ($contenido) {
+					echo '<span class="acf-campo-contenido">' . wp_kses_post($contenido) . '</span>';
+				}
+				echo '</li>';
+			}
+			echo '</ul>';
+			echo '</div>';
+		}
+		?>
+
+
+	<?php
+	/**
+	 * Hook: woocommerce_after_single_product_summary.
+	 *
+	 * @hooked woocommerce_output_product_data_tabs - 10
+	 * @hooked woocommerce_upsell_display - 15
+	 * @hooked woocommerce_output_related_products - 20
+	 */
+	do_action( 'woocommerce_after_single_product_summary' );
+	?>
+</div>
+
+<?php do_action( 'woocommerce_after_single_product' ); ?>

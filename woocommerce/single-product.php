@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
-<div class="container">
+<div class="container single-product">
 	<div class="row">
 		<div class="col-12">
 

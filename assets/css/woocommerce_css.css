@@ -1,5 +1,9 @@
 #coming-soon-footer-banner{ display: none; }
 
+.single-product .product_meta,
+.single-product #sidebar,
+.single-product .related.products{ display: none!important; }
+
 .page_woocommerce{
     background-color: #f3f2ee;
     padding-top: 180px;

@@ -123,4 +123,12 @@ remove_action('woocommerce_single_product_summary', 'woocommerce_template_single
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
 
+add_filter('woocommerce_product_tabs', 'custom_remove_product_tabs', 98);
+function custom_remove_product_tabs($tabs) {
+    unset($tabs['description']);              // Quita la pestaña de Descripción
+    unset($tabs['reviews']);                  // Quita la pestaña de Valoraciones
+    unset($tabs['additional_information']);   // Quita Información adicional, por si acaso
+    return $tabs;
+}
+
 ?>
