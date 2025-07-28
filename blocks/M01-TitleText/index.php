@@ -27,7 +27,11 @@ $fields = get_fields();
         <div class="row">
             <div class="col-12">
                 <div class="title"><?= $fields["titulo"] ?? ""; ?></div>
-                <div class="text"><?= $fields["texto"] ?? ""; ?></div>
+                <div class="subtitle"><?= $fields["titulo"] ?? ""; ?></div>
+                <div>
+                    <div class="titleText"></div>
+                    <div class="text"><?= $fields["texto"] ?? ""; ?></div>
+                </div>
             </div>
         </div>
     </div>

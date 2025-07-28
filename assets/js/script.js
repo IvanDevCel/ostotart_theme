@@ -20,17 +20,26 @@ jQuery(document).ready(function($) {
     });
 
     $('.offCanvasIcon').on('click', function (event) {
-        event.preventDefault(); // Evita que haga scroll al principio
-        $('body').addClass('noScroll');
-        $('.menuCont .overlay').fadeIn(500);
-        $('.offCanvasMenu').toggleClass('open');
+      event.preventDefault();
+      $('body').addClass('noScroll');
+    
+      $('.menuCont .overlay, .offCanvasMenu').css('display', 'block');
+    
+      setTimeout(() => {
+        $('.menuCont .overlay, .offCanvasMenu').css('opacity', 1);
+      }, 10); // Delay mínimo para que el CSS aplique la transición
     });
-
+    
     $('.offCanvasMenu .closeOffCanvas').on('click', function () {
-        $('body').removeClass('noScroll');
-        $('.menuCont .overlay').fadeOut(500);
-        $('.offCanvasMenu').removeClass('open submenuIsOpen');
+      $('body').removeClass('noScroll');
+    
+      $('.menuCont .overlay, .offCanvasMenu').css('opacity', 0);
+    
+      setTimeout(() => {
+        $('.menuCont .overlay, .offCanvasMenu').css('display', 'none');
+      }, 400); // Igual al tiempo de la transición CSS
     });
+    
 
     /*Infinite loop text*/
     const container = document.getElementById('marquee-container');

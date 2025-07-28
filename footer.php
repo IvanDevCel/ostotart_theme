@@ -9,38 +9,6 @@
                 </div>
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="langAndMenus">
-                        <div class="language-selector" data-no-translation>
-                                <?php
-                                if (function_exists('trp_custom_language_switcher')) :
-                                    $languages = trp_custom_language_switcher();
-                                    $current_locale = get_locale();
-
-                                    $current_lang = null;
-                                    $other_langs = [];
-
-                                    foreach ($languages as $lang) {
-                                        if ($lang['language_code'] === $current_locale) {
-                                            $current_lang = $lang;
-                                        } else {
-                                            $other_langs[] = $lang;
-                                        }
-                                    }
-                                ?>
-                                    <?php if ($current_lang): ?>
-                                        <div class="lang-select">
-                                            <span class="current"><?= esc_html($current_lang['short_language_name']); ?></span>
-                                            <?php if (!empty($other_langs)): ?>
-                                                <?php foreach ($other_langs as $lang): ?>
-                                                    <a href="<?= esc_url($lang['current_page_url']); ?>">
-                                                        <?= esc_html($lang['short_language_name']); ?>
-                                                    </a>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endif; ?>
-                        </div>
-
                         <div class="menus">
                             <?php
                             wp_nav_menu(array(

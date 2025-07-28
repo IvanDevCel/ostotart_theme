@@ -1,0 +1,19 @@
+{
+    "name": "acf/colorchanger",
+    "title": "Color Changer",
+    "description": "ColorChanger",
+    "category": "content-blocks",
+    "icon": "menu",
+    "keywords": ["ColorChanger","ColorChanger"],
+    "textdomain": "ostotart",
+    "acf": {
+      "mode": "edit",
+      "renderTemplate": "index.php"
+    },
+    "supports": {
+      "anchor": true,
+      "mode": true
+    },
+    "viewStyle": ["file:./style.css"],
+    "editorStyle": ["file:./style.css"]
+  }

@@ -30,6 +30,15 @@ function my_theme_widgets_init() {
             'after_widget'  => '',
         ),
     );
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Header Color Changer', 'ostotart' ),
+            'id'            => 'color-changer',
+            'description'   => esc_html__( 'Add widgets here.', 'ostotart' ),
+            'before_widget' => '',
+            'after_widget'  => '',
+        ),
+    );
 }
 
 add_action('wp_head', function() {
@@ -41,11 +50,11 @@ add_action('wp_head', function() {
 
 function my_custom_theme_assets() {
     wp_enqueue_style('my-theme-root-style', get_stylesheet_uri(), [], '1.0');
-    wp_enqueue_style('my-theme-assets-style', get_template_directory_uri() . '/assets/css/style.css', [], '1.0');
     // Estilos principales
     wp_enqueue_style('my-theme-style', get_template_directory_uri() . '/assets/css/style.css', [], '1.0');
 
     // Estilos adicionales
+    wp_enqueue_style('my-theme-woocommerce', get_template_directory_uri() . '/assets/css/woocommerce_css.css', [], '1.0');
     wp_enqueue_style('my-theme-fonts', get_template_directory_uri() . '/assets/css/fonts.css', [], '1.0');
     wp_enqueue_style('my-theme-footer', get_template_directory_uri() . '/assets/css/footer.css', [], '1.0');
     wp_enqueue_style('my-theme-header', get_template_directory_uri() . '/assets/css/header.css', [], '1.0');
@@ -80,6 +89,17 @@ add_action('init', 'registrar_bloques_acf');
 
 require get_stylesheet_directory() . '/inc/functions-theme.php';
 
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page([
+        'page_title' => 'Opciones del tema',
+        'menu_title' => 'Opciones del tema',
+        'menu_slug'  => 'opciones-tema',
+        'capability' => 'edit_posts',
+        'redirect'   => false
+    ]);
+}
+
+
 function my_enqueue_ajax_script() {
     wp_enqueue_script('ajax-search', get_template_directory_uri() . '/blocks/SearchBar/ajax.js', array('jquery'), '1.0', true);
 
@@ -90,4 +110,17 @@ function my_enqueue_ajax_script() {
 add_action('wp_enqueue_scripts', 'my_enqueue_ajax_script');
 
 require_once get_template_directory() . '/ajax-search.php';
+
+
+/*Woocommerce*/
+add_theme_support( 'woocommerce' );
+
+// Ocultar botón "Añadir al carrito"
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+
+// Ocultar precios
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+
 ?>
