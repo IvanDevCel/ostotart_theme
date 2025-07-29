@@ -25,7 +25,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+<div id="productInfo" <?php wc_product_class( 'producto-contenido', $product ); ?>>
 
 	<?php
 	/**
@@ -62,7 +62,7 @@ if ( post_password_required() ) {
 		if (!empty($product_cats) && !is_wp_error($product_cats)) {
 			foreach ($product_cats as $cat) {
 				$cat_link = get_term_link($cat);
-				echo '<a class="categoria-producto" href="' . esc_url($cat_link) . '">' . esc_html($cat->name) . '</a> ';
+				echo '<span class="categoria-producto">' . esc_html($cat->name) . '</span> ';
 			}
 		}
 		?>
@@ -70,27 +70,34 @@ if ( post_password_required() ) {
 
 
 		<?php
-		$campos_extra = get_field('campos_extra');
-		if ($campos_extra) {
+		$campo_descripcion = get_field('texto_descripcion');
+		if ($campo_descripcion) {
 			echo '<div class="acf-campos-extra">';
-			echo '<ul class="acf-campos-extra-lista">';
-			foreach ($campos_extra as $campo) {
-				$titulo = $campo['titulo'] ?? '';
-				$contenido = $campo['contenido'] ?? '';
-
-				echo '<li class="acf-campo-extra">';
-				if ($titulo) {
-					echo '<strong class="acf-campo-titulo">' . esc_html($titulo) . ':</strong> ';
-				}
-				if ($contenido) {
-					echo '<span class="acf-campo-contenido">' . wp_kses_post($contenido) . '</span>';
-				}
-				echo '</li>';
-			}
-			echo '</ul>';
+			echo  wp_kses_post($campo_descripcion);
 			echo '</div>';
+
 		}
 		?>
+
+		<?php
+			$telefono = get_field('numero_de_telefono', 'option');
+
+			if ($telefono) {
+				$titulo = get_the_title();
+				$url = get_permalink();
+				
+				$mensaje = rawurlencode(
+					"Hola! estoy interesado en el producto \"$titulo\".\n\nPuedes verlo aquí: $url"
+				);
+
+				echo '<a class="whatsapp-button" href="https://wa.me/34' . $telefono . '?text=' . $mensaje . '" target="_blank" rel="noopener noreferrer">';
+				echo 'Contactar Obra';
+				echo '</a>';
+			}
+		?>
+
+
+
 
 
 	<?php

@@ -1,0 +1,20 @@
+  {
+    "name": "acf/imghistory",
+    "title": "M06_ImgHistory",
+    "description": "ImgHistory block",
+    "category": "content-blocks",
+    "icon": "menu",
+    "keywords": ["Img History","M06"],
+    "textdomain": "ostotart",
+    "acf": {
+      "mode": "edit",
+      "renderTemplate": "index.php"
+    },
+    "supports": {
+      "anchor": true,
+      "mode": true
+    },
+    "viewStyle": ["file:./style.css"],
+    "editorStyle": ["file:./style.css"],
+    "viewScript": ["file:./main.js"]
+  }

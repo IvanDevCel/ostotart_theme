@@ -135,5 +135,24 @@ jQuery(document).ready(function($) {
     window.addEventListener('resize', () => {
       resetMarquee();
     });
+
+    const swiperEl = document.querySelector('.mySwiper');
+
+    if (swiperEl) {
+      new Swiper(".single-product .mySwiper", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 300,
+        effect: "slide",
+        navigation: {
+          nextEl: ".swiper-button-next", // Usa tus clases personalizadas
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    }
+
+
+
     
 });

@@ -1,0 +1,67 @@
+.ImgHistory .ImgHistory-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.ImgHistory .ImgHistory-grid.image-right {
+  direction: rtl;
+}
+
+.ImgHistory .ImgHistory-grid.image-right .contText,
+.ImgHistory .ImgHistory-grid.image-right .contImg {
+  direction: ltr;
+}
+
+.ImgHistory .contImg{
+    margin: 0 auto;
+    height: 60dvh;
+}
+
+.ImgHistory .contImg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ImgHistory .contText .subtitle {
+    font-family: var(--BoskaItalic);
+    font-size: 70px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--AzulOscuro);
+}
+
+.ImgHistory .contText .text h2,
+.ImgHistory .contText .text h3,
+.ImgHistory .contText .text h4,
+.ImgHistory .contText .text h5,
+.ImgHistory .contText .text h6{
+    font-size: 22px;
+    color: var(--AzulOscuro);
+    font-weight: 500;
+    font-family: var(--SatoshiVariable);
+}
+
+.ImgHistory .contText .text {
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 500;
+    font-family: var(--SatoshiVariable);
+}
+
+@media screen and (max-width: 768px) {
+  .ImgHistory .ImgHistory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ImgHistory .ImgHistory-grid.image-right {
+    direction: ltr;
+  }
+
+  .ImgHistory .contText,
+  .ImgHistory .contImg {
+    text-align: center;
+  }
+}
