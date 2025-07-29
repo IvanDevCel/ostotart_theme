@@ -219,7 +219,10 @@ header .offCanvasIcon{
         display: none;
     }
 
-    header .offCanvasIcon{ display: block; }
+    header .offCanvasIcon{ 
+        display: flex;
+        align-items:center
+    }
 }
 
 /* ===============

@@ -115,6 +115,8 @@ require_once get_template_directory() . '/ajax-search.php';
 /*Woocommerce*/
 add_theme_support( 'woocommerce' );
 
+add_theme_support('post-thumbnails');
+
 // Ocultar botón "Añadir al carrito"
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
