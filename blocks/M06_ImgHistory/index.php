@@ -94,7 +94,17 @@ $style_img     = 'width:' . intval($tamano_imagen) . '%;';
         gap: 20px;
     }
 
+    @media screen and (max-width: 992px) {
+        .ImgHistory .rejilla {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
     @media screen and (max-width: 768px) {
+        .ImgHistory .rejilla {
+            grid-template-columns: 1fr;
+        }
+
         .ImgHistory .contImg {
             width: 100% !important;
             text-align: center;

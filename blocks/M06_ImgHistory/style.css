@@ -156,8 +156,8 @@
 }
 
 @media screen and (max-width: 992px){
-    .ImgHistory .container-fluid .ImgHistory-grid.image-right .contText{ padding-left: 0; }
-    .ImgHistory .container-fluid .ImgHistory-grid.image-left .contText{ padding-right: 0; }
+    .ImgHistory .container-fluid .ImgHistory-grid.image-right .contText{ padding-left: 30px; }
+    .ImgHistory .container-fluid .ImgHistory-grid.image-left .contText{ padding-right: 30px; }
 
     .ImgHistory .container .ImgHistory-grid{ grid-template-columns: 1fr; }
 
@@ -173,11 +173,23 @@
     }
 
     .ImgHistory{
-        margin: 40px 0;
+        margin: 20px 0;
+    }
+
+    .ImgHistory.withMargins{
+        padding: 40px 0;
     }
 }
  
 @media screen and (max-width: 768px) {
+    .ImgHistory .container-fluid .ImgHistory-grid.image-right .contText{ padding-left: 0; }
+    .ImgHistory .container-fluid .ImgHistory-grid.image-left .contText{ padding-right: 0; }
+
+
+    .ImgHistory .btnAcces{
+        margin: 30px auto 0 auto;
+    }
+
     .ImgHistory .container-fluid .contImg {
         width: 100% !important;
         min-height: 40dvh;
@@ -201,8 +213,8 @@
         direction: ltr;
     }
 
-  .ImgHistory .contText,
-  .ImgHistory .contImg {
-    text-align: center;
-  }
+    .ImgHistory .contText,
+    .ImgHistory .contImg {
+        text-align: center;
+    }
 }

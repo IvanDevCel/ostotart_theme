@@ -169,7 +169,7 @@ footer .downFooter .legals a:hover{
 }
 
 @media screen and (max-width: 767px){
-    .logoHeader img {
+    footer .logoFooter img {
         height: auto;
         max-width: 80%;
         margin: 10px auto 30px auto;

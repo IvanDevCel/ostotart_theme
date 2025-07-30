@@ -1,10 +1,10 @@
 {
-    "name": "acf/titletext",
-    "title": "M01_TitleText",
-    "description": "Title text block",
+    "name": "acf/gridimages",
+    "title": "M05_GridImages",
+    "description": "Grid Images block",
     "category": "content-blocks",
     "icon": "menu",
-    "keywords": ["Title Text","M01"],
+    "keywords": ["Grid Images","M05"],
     "textdomain": "ostotart",
     "acf": {
       "mode": "edit",

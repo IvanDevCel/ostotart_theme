@@ -1,38 +1,28 @@
 <?php
-/**
- * Title text template.
- *
- * @param array $block The block settings and attributes.
- */
-$block_def = "TitleText";
-// Create id attribute allowing for custom "anchor" value.
-$id = $block_def.'-'.$block['id'];
-if (!empty($block['anchor'])) {
-    $id = $block['anchor'];
-}
-
-// Create class attribute allowing for custom "className" and "align" values.
+$block_def = "GridImages";
+$id = !empty($block['anchor']) ? $block['anchor'] : $block_def . '-' . $block['id'];
 $className = $block_def;
-if (!empty($block['className'])) {
-    $className .= ' ' . $block['className'];
-}
-if (!empty($block['align'])) {
-    $className .= ' align' . $block['align'];
-}
+if (!empty($block['className'])) $className .= ' ' . $block['className'];
+if (!empty($block['align'])) $className .= ' align' . $block['align'];
 
 $fields = get_fields();
+$imagenes = $fields['galeria_de_imagenes'] ?? [];
+$color_fondo = $fields['color_de_fondo'] ?? 'white';
+$pantalla_completa = $fields['pantalla_completa'] ?? 'normal';
+
+$clase_fondo = ($color_fondo === 'darkBlue') ? 'darkBlue' : 'white';
+$grid_cols_class = 'cols-' . count($imagenes);
+$container_class = ($pantalla_completa === 'fullWidth') ? 'container-fluid' : 'container';
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="title"><?= $fields["titulo"] ?? ""; ?></div>
-                <div class="subtitle"><?= $fields["titulo"] ?? ""; ?></div>
-                <div>
-                    <div class="titleText"></div>
-                    <div class="text"><?= $fields["texto"] ?? ""; ?></div>
+
+<div id="<?= esc_attr($id); ?>" class="<?= esc_attr("$className $clase_fondo"); ?>">
+    <div class="<?= esc_attr($container_class); ?>">
+        <div class="grid-imagenes <?= esc_attr($grid_cols_class); ?>">
+            <?php foreach ($imagenes as $imagen): ?>
+                <div class="item-img">
+                    <img src="<?= esc_url($imagen['url']); ?>" alt="<?= esc_attr($imagen['alt']); ?>">
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

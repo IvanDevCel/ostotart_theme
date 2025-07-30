@@ -3,7 +3,7 @@
         <div class="upperFooter">
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-3">
-                    <div class="logoHeader">
+                    <div class="logoFooter">
                         <?php the_custom_logo(); ?>
                     </div>
                 </div>
