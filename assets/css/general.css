@@ -5,7 +5,7 @@
 
 .page-content .cabecera-archivo h1{
     font-family: var(--BoskaItalic);
-    font-size: 60px;
+    font-size: clamp(40px, 10vw,60px);
     font-weight: 500;
     color: var(--AzulOscuro);
     border-bottom: 1px solid var(--AzulOscuro);
@@ -28,6 +28,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 150px;
 }
 
 .page-content .listado .obra a{
@@ -115,6 +116,80 @@
 
 }
 
+/*Single Pages Obras Proyectos*/
+.page-simple .header{
+    padding: 50px 30px;
+    min-height: 350px;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.page-simple .header .content-overlay{
+    margin-top: 150px;
+    padding: 50px 0 0 0;
+    min-height: 300px;
+}
+
+
+.header {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 100px 0;
+    color: #111;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(247, 244, 244, 0.2); /* velado blanco suave */
+    z-index: 1;
+}
+
+.header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.content-overlay {
+    text-align: center;
+}
+
+.header .badge {
+    border-radius: 100px;
+    border: 1px solid var(--AzulOscuro);
+    color: var(--Negro);
+    background-color: #fff;
+    font-family: var(--SatoshiVariable);
+    padding: 3px 10px;
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all .3s linear;
+}
+
+.header .titulo {
+    font-size: 42px;
+    margin: 40px 0;
+    font-weight: 700;
+    font-family: var(--SatoshiVariable);
+}
+
+.btn-ver-mas {
+    display: inline-block;
+    margin-top: 25px;
+    font-family: var(--BoskaItalic);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 30px;
+    transition: all 0.3s ease;
+    text-decoration: unset!important;
+}
+
+
 .single-product .acf-campos-extra *{
     font-family: var(--SatoshiVariable);
     font-size: 16px;
@@ -148,4 +223,22 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
+}
+
+@media screen and (max-width: 992px){
+    .page-content .listado .grid-content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .page-content .listado .grid-content{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
 }

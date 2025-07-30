@@ -5,6 +5,9 @@
   align-items: center;
 }
 
+.ImgHistory.noMargin{ padding: 0; }
+.ImgHistory.withMargins{ padding: 70px 0; }
+
 .ImgHistory .ImgHistory-grid.image-right {
   direction: rtl;
 }
@@ -28,6 +31,10 @@
     object-fit: cover;
 }
 
+.ImgHistory.withMargins .ImgHistory-grid.empty-img{ 
+    margin: 0 40px; 
+}
+
 .ImgHistory .ImgHistory-grid.empty-img{ 
     margin: 40px; 
     grid-template-columns: 1fr; 
@@ -36,7 +43,7 @@
 .ImgHistory .container-fluid .ImgHistory-grid.image-right .contText{ padding-left: 80px; }
 .ImgHistory .container-fluid .ImgHistory-grid.image-left .contText{ padding-right: 80px; }
 
-.ImgHistory .contText .subtitle {
+.ImgHistory.white .contText .subtitle {
     font-family: var(--BoskaItalic);
     font-size: clamp(40px, 10vw,70px);
     font-weight: 500;
@@ -44,17 +51,64 @@
     color: var(--AzulOscuro);
 }
 
-.ImgHistory .contText .text h2,
-.ImgHistory .contText .text h3,
-.ImgHistory .contText .text h4,
-.ImgHistory .contText .text h5,
-.ImgHistory .contText .text h6{
-    font-size: 22px;
-    color: var(--AzulOscuro);
+.ImgHistory.darkBlue .contText .subtitle {
+    font-family: var(--BoskaItalic);
+    font-size: clamp(40px, 10vw,70px);
     font-weight: 500;
-    font-family: var(--SatoshiVariable);
+    margin-bottom: 20px;
+    color: #FFFFFF;
 }
 
+/* Variante darkBlue (modo fondo oscuro = texto blanco) */
+.ImgHistory.darkBlue .text h2,
+.ImgHistory.darkBlue .text h3,
+.ImgHistory.darkBlue .text h4,
+.ImgHistory.darkBlue .text h5,
+.ImgHistory.darkBlue .text h6 {
+    color: #FFFFFF;
+}
+
+/* Variante darkBlue (modo fondo oscuro = texto blanco) */
+.ImgHistory.white .text h2,
+.ImgHistory.white .text h3,
+.ImgHistory.white .text h4,
+.ImgHistory.white .text h5,
+.ImgHistory.white .text h6 {
+    color: var(--AzulOscuro);;
+}
+
+
+.ImgHistory.darkBlue .rejilla .subtitle{
+    font-family: var(--SatoshiVariable);
+    font-size: 24px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.ImgHistory.white .rejilla .subtitle{
+    font-family: var(--SatoshiVariable);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--darkBlue);
+}
+
+.ImgHistory.darkBlue .text {
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 500;
+    font-family: var(--SatoshiVariable);
+    color: #FFFFFF;
+}
+
+.ImgHistory.white .rejilla .text{
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 500;
+    font-family: var(--SatoshiVariable);
+    color: var(--AzulOscuro);
+}
+
+.ImgHistory .rejilla .text,
 .ImgHistory .contText .text {
     font-size: 18px;
     line-height: 1.4;
@@ -66,7 +120,6 @@
     width: fit-content;
     display: block;
     margin-top: 30px;
-    border: 1px solid var(--AzulOscuro);
     padding: 7px 20px;
     background-color: transparent;
     border-radius: 50px;
@@ -79,9 +132,27 @@
     transition: all .3s linear;
 }
 
-.ImgHistory .btnAcces:hover{
-    background-color: #dfdfdf;
+.ImgHistory.white .btnAcces{
+    border: 1px solid var(--AzulOscuro);
+    color: var(--AzulOscuro);
+}
+
+.ImgHistory.white .btnAcces:hover{
     font-weight: 600;
+    background-color: var(--AzulOscuro);
+    border-color: white;
+    color: white;
+}
+
+.ImgHistory.darkBlue .btnAcces{
+    border: 1px solid #dfdfdf;
+    color: #dfdfdf;
+}
+
+.ImgHistory.darkBlue .btnAcces:hover{
+    font-weight: 600;
+    background-color: white;
+    color: var(--darkBlue);
 }
 
 @media screen and (max-width: 992px){
