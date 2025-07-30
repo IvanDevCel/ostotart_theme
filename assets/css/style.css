@@ -6,3 +6,30 @@
     max-width: 100%;
     margin-top: 120px;
 }
+
+/* Scrollbar global para toda la web */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: rgba(88, 79, 79, 0.4);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  transition: background 0.3s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+    border: 1px solid rgba(0, 0, 0, 0);
+  background: rgba(116, 112, 112, 0.6);
+}

@@ -1,8 +1,8 @@
 /*Search Section*/
 .BarraBusqueda .searchSection{
     opacity: 0;
-    min-height: 40vh;
-    padding: 32px;
+    min-height: fit-content;
+    padding: 32px 32px 50px 32px;
     width: 95%;
     background-color: var(--AzulOscuro);
     position: fixed;
@@ -114,7 +114,7 @@
     font-size: 22px;
     font-family: var(--SatoshiVariable);
     font-weight: 500;
-    color: var(--AzulOscuro);
+    color: #060441;
     text-align: left;
     margin-bottom: 10px;
 }
@@ -124,7 +124,7 @@
     font-size: 14px;
     font-family: var(--SatoshiVariable);
     font-weight: 400;
-    color: var(--AzulOscuro);
+    color: #060441;
     text-align: left;
 }
 
@@ -162,11 +162,12 @@
 
 .BarraBusqueda .search-list .search-card .search-link{
     display: flex;
+    position: relative;
     width: 100%;
 }
 
 .BarraBusqueda .search-list .search-card .search-link .imgCont{
-    height: 150px;
+    height: 100%;
 }
 
 .BarraBusqueda .search-list .search-card .search-link .imgCont img{
@@ -178,6 +179,10 @@
 .BarraBusqueda .search-list .search-card .search-link .search-info{
     padding: 20px;
     height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .BarraBusqueda #search-results .search-card p {
@@ -189,13 +194,100 @@
   text-overflow: ellipsis;
 }
 
-.BarraBusqueda .search-info{
-    background-color: #c1c1c0
+.BarraBusqueda .search-list .search-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+    background: transparent; /* Para mantener coherencia con efecto glass */
 }
+
+
+.BarraBusqueda .search-info {
+    background: rgb(255 255 255 / 16%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px;
+}
+
+.BarraBusqueda .search-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+/* 🧊 Glass effect para el contenedor */
+.BarraBusqueda .searchContainer.glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    max-width: 960px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Estilo input dentro del glass container */
+.BarraBusqueda .searchContainer .search-input {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    width: 100%;
+    color: var(--Blanco);
+    font-family: var(--BoskaItalic);
+    font-weight: 400;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--Dorado2);
+}
+
+.BarraBusqueda .searchContainer .search-input::placeholder {
+    color: var(--Blanco);
+}
+
+.BarraBusqueda .searchContainer .search-input:focus {
+    outline: none;
+}
+
+/* Ajustes para resultados dentro del glass container */
+.BarraBusqueda .searchContainer .search-results {
+    margin-top: 20px;
+}
+
+/* Sombra ligera en las cards para que destaquen */
+.BarraBusqueda .searchSection {
+    background: rgb(201 201 201 / 38%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.BarraBusqueda #search-results .search-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.BarraBusqueda #search-results .search-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* track casi invisible */
+  border-radius: 10px;
+}
+
+.BarraBusqueda #search-results .search-list::-webkit-scrollbar-thumb {
+  background: rgba(88, 79, 79, 0.4); /* blanco suave */
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0); /* para un efecto “hueco” */
+  background-clip: padding-box;
+  transition: background 0.3s ease;
+}
+
+.BarraBusqueda #search-results .search-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6); /* un poco más intenso al pasar el ratón */
+}
+
 
 @media screen and (max-width: 992px){
     .BarraBusqueda #search-results .search-list{
-        padding: 0 30px 0 0;
+        padding: 10px 30px 10px 0;
         max-height: calc(100dvh - 270px);
         overflow-y: scroll;
     }

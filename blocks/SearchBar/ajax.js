@@ -19,18 +19,23 @@ jQuery(document).ready(function ($) {
                             $('.searchSection').addClass('searching'); // Solo si hay resultados
                             output += `<div class="search-title">Resultados Búsqueda (${response.length})</div><div class="search-list">`;
                             response.forEach(function (post) {
-                                output += `
-                                    <div class="search-card">
-                                        <a href="${post.link}" class="search-link">
-                                            ${post.image ? `<div class="imgCont"><img src="${post.image}" alt="${post.title}"></div>` : ''}
-                                            <div class="search-info">
-                                                <h4>${post.title}</h4>
-                                                ${post.excerpt ? `<p>${post.excerpt}</p>` : ''}
+                            output += `
+                                <div class="search-card">
+                                    <a href="${post.link}" class="search-link">
+                                        ${post.image ? `
+                                            <div class="imgCont">
+                                                <img src="${post.image}" alt="${post.title}">
                                             </div>
-                                        </a>
-                                    </div>`;
+                                        ` : ''}
+                                        <div class="search-info">
+                                            <h4>${post.title}</h4>
+                                            ${post.excerpt ? `<p>${post.excerpt}</p>` : ''}
+                                        </div>
+                                    </a>
+                                </div>`;
                             });
                             output += `</div>`;
+
                         } else {
                             $('.searchSection').removeClass('searching'); // Si no hay resultados
                             output = '<p class="noResults">No se encontraron resultados.</p>';
