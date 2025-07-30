@@ -1,7 +1,124 @@
+/*Pages Obra and Trabajos*/
+.page-content{
+    margin-top: 160px;
+}
+
+.page-content .cabecera-archivo h1{
+    font-family: var(--BoskaItalic);
+    font-size: 60px;
+    font-weight: 500;
+    color: var(--AzulOscuro);
+    border-bottom: 1px solid var(--AzulOscuro);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+.page-content .listado .grid-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.page-content .listado .obra{
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-content .listado .obra a{
+    text-decoration:none;
+}
+
+.page-content .listado .obra:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+}
+
+.page-content .listado .obra:hover .contDown .categorias .categoria{
+    font-weight: 600;
+}
+
+.page-content .listado .thumb{
+    width: 100%;
+    height: 150px;
+}
+
+.page-content .listado .thumb img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.page-content .noDataAvi{
+    margin: 0 auto;
+    font-family: var(--SatoshiVariable);
+    font-size: 50px;
+    margin-bottom: 40px;
+    color: var(--AzulOscuro);
+    font-weight: 600;
+    text-align: center;
+}
+
+.page-content .listado .contDown{
+    padding: 15px;
+}
+
+.page-content .listado .contDown h2{
+    font-family: var(--SatoshiVariable);
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--AzulOscuro);
+    margin-bottom: 15px;
+}
+
+.page-content .resumen *{
+    display: -webkit-box;
+    margin-bottom: 0;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: var(--SatoshiVariable);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--AzulOscuro);
+    margin-bottom: 10px;
+}
+
+
+.page-content .listado .contDown .categorias{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.page-content .listado .contDown .categorias .categoria{
+    border-radius: 100px;
+    border: 1px solid var(--AzulOscuro);
+    color: var(--AzulOscuro);
+    background-color: #fff;
+    font-family: var(--SatoshiVariable);
+    padding: 3px 10px;
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all .3s linear;
+
+}
+
 .single-product .acf-campos-extra *{
     font-family: var(--SatoshiVariable);
     font-size: 16px;
-    line-height: 1.3
+    line-height: 1.3;
 }
 
 .single-product .acf-campos-extra h2,

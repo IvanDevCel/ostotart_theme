@@ -3,7 +3,7 @@
 <div class="page-content archivo-obras">
     <section class="cabecera-archivo">
         <div class="container">
-            <h1>Todas las obras</h1>
+            <h1>Todos los proyectos</h1>
         </div>
     </section>
 
@@ -11,7 +11,7 @@
         <div class="container">
             <?php
             $obras = new WP_Query([
-                'post_type' => 'obra',
+                'post_type' => 'proyecto',
                 'posts_per_page' => 9,
                 'post_status' => 'publish',
             ]);
@@ -22,7 +22,7 @@
                         $fields = get_fields();
 
                         // Reemplaza 'categoria_obra' por el nombre real de tu taxonomía si es diferente
-                        $categorias = get_the_terms(get_the_ID(), 'categoria_obra');
+                        $categorias = get_the_terms(get_the_ID(), 'categoria_proyecto');
 
                         ?>
                         <article class="obra">
@@ -60,7 +60,7 @@
                     wp_reset_postdata(); ?>
                 </div>
             <?php else : ?>
-                <h2 class="noDataAvi">No hay obras publicadas todavía.</h2>
+                <h2 class="noDataAvi">No hay proyectos publicados todavía.</p>
             <?php endif; ?>
         </div>
     </section>

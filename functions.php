@@ -59,6 +59,7 @@ function my_custom_theme_assets() {
     wp_enqueue_style('my-theme-footer', get_template_directory_uri() . '/assets/css/footer.css', [], '1.0');
     wp_enqueue_style('my-theme-header', get_template_directory_uri() . '/assets/css/header.css', [], '1.0');
     wp_enqueue_style('my-theme-variables', get_template_directory_uri() . '/assets/css/variables.css', [], '1.0');
+    wp_enqueue_style('my-theme-general', get_template_directory_uri() . '/assets/css/general.css', [], '1.0');
 
     // Scripts
     wp_enqueue_script('my-theme-script', get_template_directory_uri() . '/assets/js/script.js', [], '1.0', true);
